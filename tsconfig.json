@@ -21,7 +21,12 @@
     "lib": [
       "es2020",
       "dom"
-    ]
+    ],
+    "paths": {
+      "https": ["node_modules/https-browserify"],
+      "url": ["node_modules/url"],
+      "http": ["node_modules/stream-http"]
+  }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
