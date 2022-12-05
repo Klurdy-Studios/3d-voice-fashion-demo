@@ -1,0 +1,13 @@
+.transcription-bar{
+    height: 64px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;   
+    align-items: center;
+
+    img{
+        height: 32px;
+        width: auto;
+        margin-right: 16px ;
+    }
+}

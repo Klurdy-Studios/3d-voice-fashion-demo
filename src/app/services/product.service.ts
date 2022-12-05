@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 export interface IProduct{
   title: string;
@@ -12,7 +13,8 @@ export interface IProduct{
 })
 export class ProductService {
   product: IProduct = {} as any;
-  cart = 0
+  private cart = 0;
+  cartItems$ = new Subject();
 
   constructor() { }
 
@@ -21,7 +23,8 @@ export class ProductService {
   }
 
   addToCart(){
-    this.cart += 1
+    this.cart += 1;
+    this.cartItems$.next(this.cart);
   }
 
   narrateText(){

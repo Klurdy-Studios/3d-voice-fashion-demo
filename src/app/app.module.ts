@@ -7,10 +7,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NlpService } from './services/nlp.service';
 import { ThreedService } from './services/threed.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ViewComponent } from './components/view/view.component';
+import { EditComponent } from './components/edit/edit.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ViewComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,

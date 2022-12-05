@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 const cohere = require('cohere-ai');
+import { Subject } from "rxjs";
 
 declare global {
   interface Window {
@@ -21,7 +22,8 @@ recognition.maxAlternatives = 1;
 })
 export class NlpService {
   // Set your wake word
-  WAKE_WORD = ["klurdy"];
+  WAKE_WORD = ["demo"];
+  utterances$ = new Subject();
   
   utterances = [
     { text: 'Next one', label: 'switch_material'},
@@ -65,26 +67,25 @@ export class NlpService {
   speechToText(textEl: HTMLElement){
     recognition.start();
     recognition.onresult = (event: any) => {
-      console.log(event.results)
       let utteranceList = event.results;
       let latestUtterance = utteranceList[utteranceList.length-1];
       let speechRecognition = latestUtterance[latestUtterance.length-1];
   
       // Update text object with speech recognition transcription
       let transcript  = speechRecognition.transcript.toLowerCase();
-      textEl.setAttribute("text", `value:${transcript}`);
+      textEl.innerHTML = transcript;
 
       if(latestUtterance.isFinal) {
         // Exit the function if the wake word was not triggered to respect user privacy
         if(!transcript.includes(`hey ${this.WAKE_WORD}`)) {
           // Provide the user with a suggestion on voice commands they can say
-          textEl.setAttribute("text", `value:Try saying: 'Hey ${this.WAKE_WORD}, show me a different color'`);
+          textEl.innerHTML = `Try saying: 'Hey ${this.WAKE_WORD}, show me a different color'`;
           return;
         }
         
         // Extract the utterance from the wake word
         let utterance = transcript.split(`hey ${this.WAKE_WORD}`)[1];
-        return utterance;
+        this.utterances$.next(utterance);
       }
     };
   }

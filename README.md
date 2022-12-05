@@ -1,9 +1,9 @@
-# 3dVoiceDemo
+# Voice-Activated Interfaces for 3D
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0. This is a demonstration of using NLP to create voice-activated experiences for viewing 3D products. It uses NLP to generate product descriptions and intent recognition to create actions from voice. It leverages Web Speech API for text-to-speech.
+This is a demonstration of using NLP to create voice-activated experiences for viewing 3D products. It uses NLP to generate product descriptions and intent recognition to create actions from voice. It leverages Web Speech API for text-to-speech. Currently tested only on Chrome.
 
 ## Getting started
-First, amke sure you have Node v14+ installed. Then install [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0 in your global environment. Finally, clone this repository and install dependencies  by running `npm install` command.
+First, make sure you have Node v14+ installed. Then install [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0 in your global environment. Finally, clone this repository and install dependencies  by running `npm install` command.
 
 ## Development server
 
