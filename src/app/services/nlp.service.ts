@@ -55,6 +55,7 @@ export class NlpService {
 
   async classifyText(inputs: any) {
     const response = await cohere.classify({
+      model: 'large',
       inputs: inputs,
       examples: this.utterances,
     });
