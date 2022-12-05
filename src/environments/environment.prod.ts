@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  cohereApiKey: ''
+  cohereApiKey: '<API_KEY>'
 };

@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  cohereApiKey: 'Np2HfHh0oADvg11H7y4PfNaaVBx7tQUD2nGRxEXP'
+  cohereApiKey: '<API_KEY>'
 };
 
 /*
